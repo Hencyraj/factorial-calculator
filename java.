@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main {
+
+    // Iterative method to calculate factorial
+    public static long iterativeFactorial(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // Recursive method to calculate factorial
+    public static long recursiveFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * recursiveFactorial(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to enter a number
+        System.out.print("Enter a number to calculate its factorial: ");
+        int number = scanner.nextInt();
+
+        // Ensure the number is non-negative
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            // Calculate the factorial using both methods
+            long iterativeResult = iterativeFactorial(number);
+            long recursiveResult = recursiveFactorial(number);
+
+            // Display the results
+            System.out.println("Factorial of " + number + " (Iterative): " + iterativeResult);
+            System.out.println("Factorial of " + number + " (Recursive): " + recursiveResult);
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
